@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laure_Tech digital – Solutions numériques</title>
+<meta name="description" content="Laure_Tech digital : sites web, applications sur mesure, logos et installation de systèmes d'exploitation. Devis sur WhatsApp.">
+<meta name="theme-color" content="#0A2342">
+<meta property="og:title" content="Laure_Tech digital">
+<meta property="og:description" content="Sites web, applications sur mesure, logos et installation de systèmes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A2342'/%3E%3Cpath d='M30 22V78H62V22M46 22H78' fill='none' stroke='%23fff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='30' cy='22' r='6.5' fill='%2322C55E'/%3E%3Ccircle cx='78' cy='22' r='6.5' fill='%2322C55E'/%3E%3Ccircle cx='62' cy='78' r='6.5' fill='%2322C55E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A2342;        /* bleu nuit : confiance, sérieux */
+    --ink-2: #123763;
+    --muted: #4A5A78;
+    --paper: #F5F8FC;
+    --white: #FFFFFF;
+    --line: #DCE4F0;
+    --accent: #1559E6;     /* bleu électrique : technologie */
+    --accent-ink: #FFFFFF;
+    --green: #22C55E;      /* vert : innovation, croissance */
+    --green-ink: #0A7D4F;  /* vert lisible pour le texte */
+    --on-dark: #B9C6DE;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Barre du haut */
+  .bar { background: var(--white); border-bottom: 1px solid var(--line); }
+  .bar .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 72px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 42px; height: 42px; flex: none; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand-text strong { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; }
+  .brand-text small { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--green-ink); }
+  .refresh {
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px;
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--ink); border-radius: 999px;
+    font: inherit; font-size: .92rem; font-weight: 600; cursor: pointer;
+  }
+  .refresh:hover { border-color: var(--accent); color: var(--accent); }
+  .refresh:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .refresh:disabled { cursor: progress; opacity: .7; }
+  .refresh svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .refresh.loading svg { animation: tourne .8s linear infinite; }
+  @keyframes tourne { to { transform: rotate(360deg); } }
+  .status { margin: 0; padding-top: 6px; text-align: right; color: var(--muted); font-size: .8rem; }
+  .status:empty { display: none; }
+
+  /* Présentation */
+  .hero { display: grid; grid-template-columns: 1fr; gap: 24px; padding: 64px 0 8px; align-items: center; }
+  h1 { margin: 0 0 16px; max-width: 18ch; font-size: clamp(2.1rem, 6vw, 3.6rem); line-height: 1.04; font-weight: 800; letter-spacing: -0.035em; }
+  .lead { margin: 0; max-width: 56ch; color: var(--muted); font-size: 1.1rem; }
+  .deco { display: none; width: 100%; height: auto; }
+  .atouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .atouts strong { display: block; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .atouts p { margin: 2px 0 0; color: var(--muted); font-size: .95rem; }
+
+  /* Sections */
+  section { margin-top: 80px; }
+  h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; }
+  .intro { margin: 0; max-width: 56ch; color: var(--muted); }
+
+  /* Boutons */
+  .btn {
+    display: inline-flex; align-items: center; align-self: flex-start; gap: 10px;
+    margin-top: 18px; padding: 12px 20px;
+    background: var(--accent); color: var(--accent-ink);
+    border: 1.5px solid var(--accent);
+    font: inherit; font-weight: 600; text-decoration: none; border-radius: 10px;
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .btn.alt { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn.alt:hover { filter: none; color: var(--accent); border-color: var(--accent); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0 12px; }
+
+  /* Solutions : diaporama sur fond bleu nuit */
+  .bande { margin-top: 80px; padding: 64px 0 56px; background: var(--ink); color: var(--white); }
+  .bande h2 { color: var(--white); }
+  .bande .intro { color: var(--on-dark); }
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; }
+  .head > div:first-child { flex: 1 1 260px; }
+  .droite { display: flex; align-items: center; gap: 16px; }
+  .compteur { font-weight: 600; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: var(--on-dark); }
+  .bande .refresh { color: var(--white); border-color: rgba(255,255,255,.7); }
+  .bande .refresh:hover { color: var(--green); border-color: var(--green); }
+  .bande .refresh:focus-visible { outline-color: var(--white); }
+
+  .slider { margin-top: 32px; }
+  .vue { overflow: hidden; border-radius: 16px; touch-action: pan-y; }
+  .piste { list-style: none; margin: 0; padding: 0; display: flex; transition: transform .6s cubic-bezier(.22, .8, .24, 1); }
+  .slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: 1fr; background: var(--white); color: var(--ink); }
+  .slide-media { position: relative; aspect-ratio: 2.2 / 1; background: var(--ink-2); overflow: hidden; }
+  .slide-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+  .zoom { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .zoom:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .visuel { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ink-2); }
+  .visuel svg { width: 84px; height: 84px; fill: none; stroke: var(--accent-ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .visuel svg .pt { fill: var(--green); stroke: none; }
+  .slide-texte { display: flex; flex-direction: column; justify-content: center; padding: 22px 22px 24px; }
+  .slide h3 { margin: 0 0 8px; font-size: clamp(1.3rem, 3.4vw, 1.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .slide p { margin: 0 0 18px; color: var(--muted); }
+  .slide-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+  .slide .btn { margin-top: 0; }
+  .lien-affiche { padding: 0; background: none; border: 0; font: inherit; font-size: .92rem; font-weight: 600; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+  .reperes { display: flex; align-items: center; gap: 16px; margin-top: 20px; }
+  .fleche { flex: none; width: 46px; height: 46px; display: grid; place-items: center; background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.7); border-radius: 50%; cursor: pointer; }
+  .fleche:hover { background: var(--white); color: var(--ink); }
+  .fleche:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
+  .fleche[hidden] { display: none; }
+  .fleche svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .segs { display: flex; gap: 8px; flex: 1; }
+  .seg { position: relative; flex: 1; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .seg::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.28); transition: background .2s; }
+  .seg.actif::before { background: var(--green); }
+  .seg:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
+
+  /* À propos */
+  .apropos-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
+  .apropos-texte p { margin: 0 0 14px; max-width: 58ch; font-size: 1.08rem; }
+  .apropos-photo { margin: 0; }
+  .apropos-photo img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+  .etapes-titre { margin: 48px 0 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
+  .etapes { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .etapes li { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-items: start; }
+  .num { width: 40px; height: 40px; display: grid; place-items: center; border: 1.5px solid var(--green-ink); border-radius: 50%; color: var(--green-ink); font-weight: 800; }
+  .etapes strong { display: block; font-size: 1.05rem; }
+  .etapes p { margin: 2px 0 0; color: var(--muted); font-size: .95rem; }
+
+  /* Avis clients */
+  .temoignages-titre { margin: 32px 0 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
+  .temoignages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 16px; }
+  .temoignage { margin: 0; padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
+  .temoignage blockquote { margin: 0 0 16px; }
+  .temoignage blockquote p { margin: 0; font-size: 1.02rem; }
+  .temoignage figcaption { font-size: .92rem; color: var(--muted); }
+  .temoignage figcaption strong { color: var(--ink); }
+  #avis .actions { gap: 12px; margin-top: 24px; }
+  #avis .btn { margin-top: 0; }
+
+  /* Contact */
+  .contact { padding-top: 48px; border-top: 1px solid var(--line); }
+  .links { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0 40px; }
+  .links li { border-top: 1px solid var(--line); }
+  .links li:last-child { border-bottom: 1px solid var(--line); }
+  a.link { display: grid; grid-template-columns: 44px 1fr; column-gap: 16px; align-items: center; padding: 18px 4px; color: inherit; text-decoration: none; }
+  a.link:hover .name, a.link:focus-visible .name { color: var(--accent); }
+  a.link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1.5px solid var(--ink); border-radius: 50%; }
+  .icon svg { width: 22px; height: 22px; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .name { display: block; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; transition: color .15s; }
+  .hint { display: block; color: var(--muted); font-size: .95rem; }
+
+  .pied { margin-top: 72px; padding: 28px 0 36px; background: var(--ink); color: var(--on-dark); font-size: .88rem; }
+
+  /* Affiche en grand (pour lire nettement les écritures) */
+  .visionneuse { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; overflow: auto; background: rgba(10, 35, 66, .92); }
+  .visionneuse[hidden] { display: none; }
+  .visionneuse img { display: block; width: min(100%, 720px); height: auto; max-height: calc(100vh - 32px); object-fit: contain; border-radius: 10px; background: var(--white); }
+  .fermer { position: fixed; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; background: var(--white); color: var(--ink); border: 0; border-radius: 50%; font-size: 28px; line-height: 1; cursor: pointer; }
+  .fermer:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+
+  @media (min-width: 720px) {
+    .links { grid-template-columns: 1fr 1fr; }
+    .links li:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--line); }
+    .apropos-grid.avec-photo { grid-template-columns: 1fr 300px; align-items: start; }
+    .etapes { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 760px) {
+    .slide { grid-template-columns: 1.35fr 1fr; }
+    .slide-media { aspect-ratio: auto; min-height: 280px; }
+    .slide-texte { padding: 32px; }
+  }
+  @media (min-width: 860px) {
+    .hero { grid-template-columns: 1.3fr 1fr; }
+    .deco { display: block; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+    .refresh.loading svg { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" rx="22" fill="#0A2342"/>
+        <path d="M30 22V78H62V22M46 22H78" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="30" cy="22" r="6.5" fill="#22C55E"/><circle cx="78" cy="22" r="6.5" fill="#22C55E"/><circle cx="62" cy="78" r="6.5" fill="#22C55E"/>
+      </svg>
+      <div class="brand-text"><strong id="nom-barre">Laure_Tech digital</strong><small id="slogan">Tech Innovation Hub</small></div>
+    </div>
+    <button class="refresh" id="refresh" type="button" title="Charger les dernières mises à jour">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg>
+      <span id="refresh-label">Actualiser</span>
+    </button>
+  </div>
+</div>
+<div class="wrap"><p class="status" id="status" role="status" aria-live="polite"></p></div>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1 id="titre"></h1>
+        <p class="lead" id="accroche"></p>
+      </div>
+      <svg class="deco" viewBox="0 0 360 280" aria-hidden="true">
+        <g fill="none" stroke="#1559E6" stroke-opacity=".4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 70H120V150H230V70H340"/>
+          <path d="M20 215H90V250H260V190H340"/>
+          <path d="M180 20V110"/>
+          <path d="M60 150V110H120"/>
+          <path d="M300 70V28"/>
+          <path d="M230 150V190"/>
+        </g>
+        <g fill="#22C55E">
+          <circle cx="20" cy="70" r="7"/><circle cx="340" cy="70" r="7"/><circle cx="20" cy="215" r="7"/>
+          <circle cx="340" cy="190" r="7"/><circle cx="180" cy="20" r="7"/><circle cx="300" cy="28" r="7"/>
+        </g>
+        <g fill="#0A2342"><circle cx="120" cy="150" r="7"/><circle cx="230" cy="150" r="7"/><circle cx="60" cy="110" r="7"/></g>
+      </svg>
+    </div>
+    <div class="atouts" id="atouts"></div>
+  </div>
+
+  <section class="bande" id="solutions" aria-labelledby="titre-services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2 id="titre-services">Nos solutions</h2>
+          <p class="intro" id="intro-services"></p>
+        </div>
+        <div class="droite">
+          <span class="compteur" id="compteur" aria-hidden="true"></span>
+          <button class="refresh" id="pause" type="button" aria-label="Mettre en pause le défilement automatique">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path id="pause-ico" d="M9 5v14M15 5v14"/></svg>
+            <span id="pause-label">Pause</span>
+          </button>
+        </div>
+      </div>
+      <div class="slider" id="slider" role="region" aria-roledescription="carrousel" aria-label="Nos solutions">
+        <div class="vue" id="vue"><ul class="piste" id="services"></ul></div>
+        <div class="reperes">
+          <button class="fleche" id="prev" type="button" aria-label="Solution précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="segs" id="segs"></div>
+          <button class="fleche" id="next" type="button" aria-label="Solution suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="apropos" aria-labelledby="titre-apropos">
+      <h2 id="titre-apropos">À propos</h2>
+      <div class="apropos-grid" id="apropos-grid">
+        <div class="apropos-texte" id="apropos-texte"></div>
+      </div>
+      <h3 class="etapes-titre" id="etapes-titre"></h3>
+      <ol class="etapes" id="etapes"></ol>
+    </section>
+
+    <section id="avis" aria-labelledby="titre-avis">
+      <h2 id="titre-avis">Avis clients</h2>
+      <p class="intro" id="avis-texte"></p>
+      <h3 class="temoignages-titre" id="temoignages-titre"></h3>
+      <div class="temoignages" id="temoignages"></div>
+      <div class="actions" id="avis-actions"></div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="titre-contact">
+      <h2 id="titre-contact">Contactez-nous</h2>
+      <p class="intro" id="contact-texte"></p>
+      <ul class="links" id="links"></ul>
+    </section>
+  </div>
+</main>
+
+<footer class="pied"><div class="wrap">© <span id="year"></span> <span id="footer-nom"></span>. Tous droits réservés.</div></footer>
+<noscript><p style="padding:16px">Activez JavaScript pour afficher le contenu de cette page.</p></noscript>
+
+<div class="visionneuse" id="visionneuse" role="dialog" aria-modal="true" aria-label="Affiche agrandie" hidden>
+  <button class="fermer" id="fermer" type="button" aria-label="Fermer">&times;</button>
+  <img id="visionneuse-img" alt="">
+</div>
+
+<script>
+  var ICONS = {
+    whatsapp:  '<path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.3-1.2-1.8-1-.8.6c-.8-.3-1.5-1-1.8-1.8l.6-.8-1-1.8z"/>',
+    facebook:  '<circle cx="12" cy="12" r="9"/><path d="M13.5 20v-7h2.3l.4-2.7h-2.7V8.6c0-.8.3-1.3 1.4-1.3h1.4V4.9c-.3 0-1.1-.1-2-.1-2.1 0-3.4 1.2-3.4 3.4v2.1H8.5V13h2.4v7"/>',
+    instagram: '<rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6"/>',
+    tiktok:    '<path d="M14 4v10.2a3.2 3.2 0 1 1-3.2-3.2"/><path d="M14 4c.3 2.2 1.8 3.8 4 4"/>',
+    google:    '<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    etoile:    '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8-4.3-4.1 5.9-.9z"/>'
+  };
+  // Illustrations de secours (utilisées tant qu'une image n'est pas ajoutée)
+  var ICONES_SERVICES = {
+    web:  '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 14h8M8 17h5"/><circle class="pt" cx="6" cy="6.5" r=".9"/><circle class="pt" cx="9" cy="6.5" r=".9"/>',
+    app:  '<rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/><path d="M10.2 8.5l-1.8 2 1.8 2M13.8 8.5l1.8 2-1.8 2"/>',
+    logo: '<path d="M12 21l-6-9 6-9 6 9z"/><circle class="pt" cx="12" cy="11" r="1.6"/><path d="M12 12.6V21"/>',
+    os:   '<rect x="3" y="4.5" width="18" height="11.5" rx="1.5"/><path d="M12 4.5V16"/><path d="M2 19.5h20"/><circle class="pt" cx="7.5" cy="10.2" r="1.1"/><circle class="pt" cx="16.5" cy="10.2" r="1.1"/>'
+  };
+
+  var imageStamp = ""; // rempli au clic sur « Actualiser » pour recharger aussi les images
+  var idx = 0;         // numéro de la solution affichée
+
+  function clean(v) { return String(v || "").trim(); }
+  function handle(v) { return clean(v).replace(/^@/, ""); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function imgSrc(src) { return (imageStamp && !/^https?:\/\//i.test(src)) ? src + "?t=" + imageStamp : src; }
+  function bouton(url, icone, texte, alt) {
+    var a = el("a", "btn" + (alt ? " alt" : ""));
+    a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[icone] + '</svg>';
+    a.appendChild(el("span", "", texte));
+    return a;
+  }
+
+  // Charge contenu.js à neuf (jamais depuis le cache), puis appelle ok() ou erreur()
+  function charger(ok, erreur) {
+    var s = document.createElement("script");
+    s.src = "contenu.js?t=" + Date.now();
+    s.onload = function () { s.remove(); ok(); };
+    s.onerror = function () { s.remove(); erreur(); };
+    document.head.appendChild(s);
+  }
+
+  function lienWhatsApp(message) {
+    var wa = clean(CONTACT.whatsapp).replace(/\D/g, "");
+    if (!wa) return "";
+    var url = "https://wa.me/" + wa;
+    if (clean(message)) url += "?text=" + encodeURIComponent(message);
+    return url;
+  }
+
+  // Affiche la solution numéro i (revient au début après la dernière)
+  function aller(i) {
+    var piste = document.getElementById("services");
+    var n = piste.children.length;
+    if (!n) return;
+    idx = ((i % n) + n) % n;
+    piste.style.transform = "translateX(" + (-100 * idx) + "%)";
+    Array.prototype.forEach.call(piste.children, function (li, k) {
+      li.setAttribute("aria-hidden", k === idx ? "false" : "true");
+      if (k === idx) li.removeAttribute("inert"); else li.setAttribute("inert", "");
+    });
+    Array.prototype.forEach.call(document.getElementById("segs").children, function (b, k) {
+      b.classList.toggle("actif", k === idx);
+      if (k === idx) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    });
+    document.getElementById("compteur").textContent = pad(idx + 1) + " / " + pad(n);
+  }
+
+  function render() {
+    // Textes généraux
+    document.title = SITE.nom + " – Solutions numériques";
+    document.getElementById("nom-barre").textContent = SITE.nom;
+    document.getElementById("slogan").textContent = SITE.slogan || "";
+    document.getElementById("slogan").hidden = !SITE.slogan;
+    document.getElementById("titre").textContent = SITE.titre;
+    document.getElementById("accroche").textContent = SITE.accroche;
+    document.getElementById("intro-services").textContent = SITE.introServices || "";
+    document.getElementById("contact-texte").textContent = SITE.contactTexte || "";
+    document.getElementById("footer-nom").textContent = SITE.nom;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Points forts
+    var at = document.getElementById("atouts");
+    at.textContent = "";
+    (SITE.atouts || []).forEach(function (a) {
+      var d = el("div");
+      d.appendChild(el("strong", "", a.titre));
+      d.appendChild(el("p", "", a.texte));
+      at.appendChild(d);
+    });
+    at.hidden = !(SITE.atouts && SITE.atouts.length);
+
+    // Solutions : une diapositive par service (image large, texte, vrai bouton WhatsApp)
+    var piste = document.getElementById("services");
+    var segs = document.getElementById("segs");
+    piste.textContent = "";
+    segs.textContent = "";
+    SERVICES.forEach(function (s, i) {
+      var li = el("li", "slide");
+      li.setAttribute("role", "group");
+      li.setAttribute("aria-roledescription", "diapositive");
+      li.setAttribute("aria-label", (i + 1) + " sur " + SERVICES.length);
+
+      var media = el("div", "slide-media");
+      var src = clean(s.image), aff = clean(s.affiche);
+      var visuel;
+      if (src) {
+        visuel = document.createElement("img");
+        visuel.src = imgSrc(src); visuel.alt = aff ? "" : s.titre; visuel.loading = i === 0 ? "eager" : "lazy";
+      } else {
+        visuel = el("div", "visuel");
+        visuel.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONES_SERVICES[s.icone] || ICONES_SERVICES.web) + '</svg>';
+      }
+      if (aff) {
+        var zoom = el("button", "zoom");
+        zoom.type = "button";
+        zoom.title = "Agrandir l'affiche";
+        zoom.setAttribute("aria-label", "Agrandir l'affiche : " + s.titre);
+        zoom.appendChild(visuel);
+        zoom.addEventListener("click", ouvrirAffiche.bind(null, imgSrc(aff), s.titre, zoom));
+        media.appendChild(zoom);
+      } else {
+        media.appendChild(visuel);
+      }
+      li.appendChild(media);
+
+      var texte = el("div", "slide-texte");
+      texte.appendChild(el("h3", "", s.titre));
+      texte.appendChild(el("p", "", s.description));
+      var actions = el("div", "slide-actions");
+      var url = lienWhatsApp("Bonjour, je suis intéressé(e) par : " + s.titre + ".");
+      if (url) actions.appendChild(bouton(url, "whatsapp", s.bouton || "Nous écrire sur WhatsApp"));
+      if (aff) {
+        var la = el("button", "lien-affiche", "Agrandir l'affiche");
+        la.type = "button";
+        la.addEventListener("click", ouvrirAffiche.bind(null, imgSrc(aff), s.titre, la));
+        actions.appendChild(la);
+      }
+      texte.appendChild(actions);
+      li.appendChild(texte);
+      piste.appendChild(li);
+
+      var seg = el("button", "seg");
+      seg.type = "button";
+      seg.setAttribute("aria-label", "Aller à : " + s.titre);
+      seg.addEventListener("click", function () { aller(i); tenir(); lacher(6000); });
+      segs.appendChild(seg);
+    });
+    var n = SERVICES.length;
+    document.getElementById("solutions").hidden = !n;
+    document.getElementById("prev").hidden = n < 2;
+    document.getElementById("next").hidden = n < 2;
+    var reglage = (typeof DEFILEMENT !== "undefined") ? DEFILEMENT : {};
+    document.getElementById("pause").hidden = (reglage.auto === false || n < 2);
+    if (idx >= n) idx = 0;
+    aller(idx);
+
+    // À propos (photo facultative, étapes facultatives)
+    var ap = (typeof APROPOS !== "undefined") ? APROPOS : null;
+    var apSection = document.getElementById("apropos");
+    if (ap) {
+      document.getElementById("titre-apropos").textContent = ap.titre || "À propos";
+      var grid = document.getElementById("apropos-grid");
+      var txt = document.getElementById("apropos-texte");
+      txt.textContent = "";
+      (ap.texte || []).forEach(function (t) { txt.appendChild(el("p", "", t)); });
+      var vieille = grid.querySelector(".apropos-photo");
+      if (vieille) vieille.remove();
+      var photo = clean(ap.photo);
+      grid.classList.toggle("avec-photo", !!photo);
+      if (photo) {
+        var fig2 = el("figure", "apropos-photo");
+        var im = document.createElement("img");
+        im.src = imgSrc(photo); im.alt = "Portrait de la responsable de " + SITE.nom; im.loading = "lazy";
+        fig2.appendChild(im);
+        grid.appendChild(fig2);
+      }
+      var et = document.getElementById("etapes");
+      et.textContent = "";
+      (ap.etapes || []).forEach(function (e, k) {
+        var li = document.createElement("li");
+        li.appendChild(el("span", "num", String(k + 1)));
+        var d = el("div");
+        d.appendChild(el("strong", "", e.titre));
+        d.appendChild(el("p", "", e.texte));
+        li.appendChild(d);
+        et.appendChild(li);
+      });
+      var hasEt = ap.etapes && ap.etapes.length;
+      document.getElementById("etapes-titre").textContent = hasEt ? (ap.etapesTitre || "") : "";
+      document.getElementById("etapes-titre").hidden = !hasEt;
+      et.hidden = !hasEt;
+    }
+    apSection.hidden = !(ap && ((ap.texte && ap.texte.length) || (ap.etapes && ap.etapes.length)));
+
+    // Avis clients : témoignages, avis Google, avis par WhatsApp, réalisations
+    var gAvis = clean(CONTACT.googleAvis), gProfil = clean(CONTACT.googleProfil);
+    var av = (typeof AVIS !== "undefined") ? AVIS : {};
+    document.getElementById("titre-avis").textContent = av.titre || "Avis clients";
+    document.getElementById("avis-texte").textContent = av.texte || "";
+    var tems = (av.temoignages || []).filter(function (t) { return t && clean(t.texte); });
+    var tBox = document.getElementById("temoignages");
+    tBox.textContent = "";
+    tems.forEach(function (t) {
+      var fig = el("figure", "temoignage");
+      var bq = el("blockquote");
+      bq.appendChild(el("p", "", "« " + clean(t.texte) + " »"));
+      fig.appendChild(bq);
+      var cap = el("figcaption");
+      if (clean(t.nom)) cap.appendChild(el("strong", "", clean(t.nom)));
+      if (clean(t.service)) cap.appendChild(document.createTextNode((clean(t.nom) ? " · " : "") + clean(t.service)));
+      fig.appendChild(cap);
+      tBox.appendChild(fig);
+    });
+    document.getElementById("temoignages-titre").textContent = tems.length ? (av.titreTemoignages || "Ils nous ont fait confiance") : "";
+    document.getElementById("temoignages-titre").hidden = !tems.length;
+    tBox.hidden = !tems.length;
+
+    var avisBox = document.getElementById("avis-actions");
+    avisBox.textContent = "";
+    var waAvis = lienWhatsApp(av.messageWhatsapp || "Bonjour, je souhaite donner mon avis sur vos services.");
+    if (gAvis) avisBox.appendChild(bouton(gAvis, "etoile", "Laisser un avis Google", false));
+    if (waAvis) avisBox.appendChild(bouton(waAvis, "whatsapp", "Donner mon avis sur WhatsApp", !!gAvis));
+    if (gProfil) avisBox.appendChild(bouton(gProfil, "google", "Voir nos réalisations", true));
+    document.getElementById("avis").hidden = !(gAvis || waAvis || gProfil || tems.length);
+
+    // Contact (en bas de page) : un champ vide = lien masqué
+    var links = [];
+    var waUrl = lienWhatsApp(CONTACT.messageWhatsapp);
+    if (waUrl) links.push({ key: "whatsapp", label: "WhatsApp", hint: "Écrivez-nous directement", url: waUrl });
+    var fb = clean(CONTACT.facebook);
+    if (fb) links.push({ key: "facebook", label: "Facebook", hint: "Notre page et nos actualités",
+      url: /^https?:\/\//i.test(fb) ? fb : "https://www.facebook.com/" + fb.replace(/^\/+/, "") });
+    var ig = handle(CONTACT.instagram);
+    if (ig) links.push({ key: "instagram", label: "Instagram", hint: "@" + ig, url: "https://www.instagram.com/" + ig });
+    var tt = handle(CONTACT.tiktok);
+    if (tt) links.push({ key: "tiktok", label: "TikTok", hint: "@" + tt, url: "https://www.tiktok.com/@" + tt });
+    if (gProfil) links.push({ key: "google", label: "Google", hint: "Notre fiche et nos réalisations", url: gProfil });
+
+    var list = document.getElementById("links");
+    list.textContent = "";
+    links.forEach(function (l) {
+      var li = document.createElement("li");
+      var a = el("a", "link");
+      a.href = l.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      var icon = el("span", "icon");
+      icon.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[l.key] + '</svg>';
+      var text = el("span");
+      text.appendChild(el("span", "name", l.label));
+      text.appendChild(el("span", "hint", l.hint));
+      a.appendChild(icon); a.appendChild(text);
+      li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById("contact").hidden = !links.length;
+  }
+
+  // ---------- Diaporama : défilement automatique, flèches, balayage ----------
+  // Le défilement démarre toujours seul. Il s'arrête au survol, au toucher, quand une affiche
+  // est ouverte, et avec le bouton « Pause ». Si le téléphone limite les animations,
+  // les solutions changent sans effet de glissement.
+  var slider = document.getElementById("slider");
+  var vue = document.getElementById("vue");
+  var btnPause = document.getElementById("pause");
+  var icoPause = document.getElementById("pause-ico");
+  var enPause = false;
+  var retenu = false, relache = null;
+  var boite = document.getElementById("visionneuse");
+  var boiteImg = document.getElementById("visionneuse-img");
+  var boiteOuverte = false, declencheur = null;
+  var x0 = null;
+
+  function majBoutonPause() {
+    icoPause.setAttribute("d", enPause ? "M8 5l11 7-11 7z" : "M9 5v14M15 5v14");
+    btnPause.setAttribute("aria-label", enPause ? "Reprendre le défilement automatique" : "Mettre en pause le défilement automatique");
+    document.getElementById("pause-label").textContent = enPause ? "Reprendre" : "Pause";
+  }
+  function tenir() { retenu = true; clearTimeout(relache); }
+  function lacher(delai) { clearTimeout(relache); relache = setTimeout(function () { retenu = false; }, delai); }
+  function boucle() {
+    var r = (typeof DEFILEMENT !== "undefined") ? DEFILEMENT : {};
+    setTimeout(function () {
+      var r2 = (typeof DEFILEMENT !== "undefined") ? DEFILEMENT : {};
+      if (r2.auto !== false && !enPause && !retenu && !boiteOuverte && !document.hidden) aller(idx + 1);
+      boucle();
+    }, Math.max(1500, (r.secondes || 4) * 1000));
+  }
+
+  // Affiche en grand pour lire nettement les écritures
+  function ouvrirAffiche(src, titre, source) {
+    declencheur = source;
+    boiteImg.src = src;
+    boiteImg.alt = "Affiche : " + titre;
+    boite.hidden = false;
+    boiteOuverte = true;
+    document.body.style.overflow = "hidden";
+    document.getElementById("fermer").focus();
+  }
+  function fermerAffiche() {
+    if (!boiteOuverte) return;
+    boite.hidden = true;
+    boiteOuverte = false;
+    document.body.style.overflow = "";
+    if (declencheur) declencheur.focus();
+    tenir(); lacher(2000);
+  }
+  document.getElementById("fermer").addEventListener("click", fermerAffiche);
+  boite.addEventListener("click", function (e) { if (e.target === boite) fermerAffiche(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") fermerAffiche();
+  });
+
+  slider.addEventListener("mouseenter", tenir);
+  slider.addEventListener("mouseleave", function () { lacher(500); });
+  slider.addEventListener("focusin", tenir);
+  slider.addEventListener("focusout", function () { lacher(500); });
+  slider.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { aller(idx + 1); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { aller(idx - 1); e.preventDefault(); }
+  });
+
+  // Balayage au doigt : gauche = suivant, droite = précédent
+  vue.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; x0 = e.clientX; tenir(); });
+  vue.addEventListener("pointerup", function (e) {
+    if (e.pointerType === "mouse" || x0 === null) return;
+    var dx = e.clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 40) aller(idx + (dx < 0 ? 1 : -1));
+    lacher(6000);
+  });
+  vue.addEventListener("pointercancel", function () { x0 = null; lacher(6000); });
+
+  document.getElementById("prev").addEventListener("click", function () { aller(idx - 1); tenir(); lacher(6000); });
+  document.getElementById("next").addEventListener("click", function () { aller(idx + 1); tenir(); lacher(6000); });
+  btnPause.addEventListener("click", function () { enPause = !enPause; majBoutonPause(); });
+  majBoutonPause();
+  boucle();
+
+  // ---------- Bouton « Actualiser » ----------
+  var btn = document.getElementById("refresh");
+  var label = document.getElementById("refresh-label");
+  var status = document.getElementById("status");
+
+  function fin() { btn.disabled = false; btn.classList.remove("loading"); label.textContent = "Actualiser"; }
+
+  btn.addEventListener("click", function () {
+    btn.disabled = true;
+    btn.classList.add("loading");
+    label.textContent = "Actualisation…";
+    status.textContent = "";
+    imageStamp = String(Date.now());
+    charger(function () {
+      render();
+      fin();
+      status.textContent = "À jour à " + new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+    }, function () {
+      fin();
+      status.textContent = "Échec : vérifiez votre connexion.";
+    });
+  });
+
+  // Premier affichage
+  charger(render, function () {
+    document.getElementById("accroche").textContent = "Le contenu n'a pas pu être chargé. Touchez « Actualiser » pour réessayer.";
+  });
+</script>
+</body>
+</html>
